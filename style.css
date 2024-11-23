@@ -85,7 +85,8 @@ nav a:hover {
 }
 
 .repo img {
-  width: 17px;
+  width: 15px;
+  margin-right: 5px;
   vertical-align: middle;
 }
 

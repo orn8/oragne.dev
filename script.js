@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     repo.appendChild(descElement);
 
     const repoIcon = document.createElement("img");
-    repoIcon.src = "assets/repo-icon.png";
+    repoIcon.src = "https://raw.githubusercontent.com/orn8/oragne.dev/refs/heads/main/assets/repo-icon.png";
     repoIcon.alt = "GitHub Repo Icon";
     repoIcon.classList.add("repo-icon");
     repo.prepend(repoIcon);

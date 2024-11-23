@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nameContainer.rel = "noopener noreferrer";
 
     const repoIcon = document.createElement("img");
-    repoIcon.src = "https://raw.githubusercontent.com/orn8/oragne.dev/refs/heads/main/assets/repo-icon.png";
+    repoIcon.src = "/assets/repo-icon.png";
     repoIcon.alt = "GitHub Repo Icon";
     repoIcon.classList.add("repo-icon");
 

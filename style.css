@@ -55,12 +55,12 @@ nav a:hover {
 }
 
 .profile-info h1 {
-  margin: 0;
+  margin: 0 0 20px;
   font-size: 48px;
   color: #f5f5f5;
 }
 
-.discord-badges img {
+.badges img {
   width: 60px;
   margin-right: 10px;
 }
@@ -85,7 +85,7 @@ nav a:hover {
 }
 
 .repo img {
-  width: 20px;
+  width: 27px;
   vertical-align: middle;
 }
 

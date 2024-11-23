@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     repoIcon.alt = "GitHub Repo Icon";
     repoIcon.classList.add("repo-icon");
 
-    const space = document.createTextNode(" ");
+    const space = document.createTextNode("  ");
     repo.prepend(space);
     repo.prepend(repoIcon);
 

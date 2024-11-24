@@ -56,13 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuGrid = document.getElementById("app-menu-grid");
 
   menuButton.addEventListener("click", () => {
-    if (menuGrid.classList.contains("show")) {
-      menuGrid.classList.add("hide");
-      menuGrid.classList.remove("show");
-    } else {
-      menuGrid.classList.remove("hide");
-      menuGrid.classList.add("show");
-    }
+    menuGrid.classList.toggle("show");
   });
 
   const appItems = document.querySelectorAll(".app-menu-item");

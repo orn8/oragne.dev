@@ -86,6 +86,13 @@ nav a:hover {
   margin-right: 10px;
 }
 
+.bio {
+  font-size: 16px;
+  color: #a0a0a0;
+  margin-top: 10px;
+  font-style: italic;
+}
+
 #projects {
   margin-top: 50px;
 }

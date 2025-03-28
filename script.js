@@ -53,12 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // App menu
 (function() {
   // URLs for hosted files
-  const BASE_URL = "https://raw.githubusercontent.com/orn8/appmenu/refs/heads/main/";
-  const cssUrl = BASE_URL + "appmenu.css";
-  const jsUrl = BASE_URL + "appmenu.js";
-  const htmlUrl = BASE_URL + "appmenu.html";
+  const cssUrl = "https://raw.githubusercontent.com/orn8/appmenu/refs/heads/main/appmenu.css";
+  const jsUrl = "https://raw.githubusercontent.com/orn8/appmenu/refs/heads/main/appmenu.js";
+  const htmlUrl = "https://raw.githubusercontent.com/orn8/appmenu/refs/heads/main/appmenu.html";
 
-  // Function to dynamically load CSS
+  // Function to load CSS
   function loadCSS(url) {
       const link = document.createElement("link");
       link.rel = "stylesheet";
@@ -66,16 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.head.appendChild(link);
   }
 
-  // Function to dynamically load and inject HTML
-  function loadHTML(url) {
-      return fetch(url)
-          .then(response => response.text())
-          .then(html => {
-              document.body.insertAdjacentHTML("afterbegin", html);
-          });
-  }
-
-  // Function to dynamically load JavaScript
+  // Function to load JavaScript
   function loadJS(url) {
       return new Promise((resolve, reject) => {
           const script = document.createElement("script");
@@ -86,29 +76,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // Function to wait until an element exists before continuing
-  function waitForElement(selector, timeout = 5000) {
-      return new Promise((resolve, reject) => {
-          const startTime = Date.now();
-
-          (function checkElement() {
-              const element = document.querySelector(selector);
-              if (element) return resolve(element);
-
-              if (Date.now() - startTime >= timeout) {
-                  return reject(new Error(`Timeout: ${selector} did not appear`));
-              }
-
-              requestAnimationFrame(checkElement); // Check again on the next frame
-          })();
-      });
+  // Function to load HTML and append it to the body
+  function loadHTML(url) {
+      return fetch(url)
+          .then(response => response.text())
+          .then(html => {
+              document.body.insertAdjacentHTML("afterbegin", html);
+          });
   }
 
-  // Main execution sequence
-  loadCSS(cssUrl); // Load CSS first
-  loadHTML(htmlUrl) // Load HTML and wait for it to be fully inserted
-      .then(() => waitForElement("#app-menu-container")) // Wait for HTML to actually appear
-      .then(() => loadJS(jsUrl)) // Load JS only after HTML exists
+  // Load CSS, HTML, and JS
+  loadCSS(cssUrl);
+  loadHTML(htmlUrl)
+      .then(() => loadJS(jsUrl))
       .catch(error => console.error("Error loading app menu:", error));
-
 })();
